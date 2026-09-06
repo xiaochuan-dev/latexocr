@@ -3,6 +3,7 @@ from pathlib import Path
 from PIL import Image
 from pix2text import TextFormulaOCR
 from .const import imgs_dir
+from ..download_utils import download_zip
 
 
 def recognize_formulas(pdfname, batch_size=64):
@@ -45,7 +46,8 @@ def recognize_formulas(pdfname, batch_size=64):
 
 
 if __name__ == "__main__":
+    download_zip()
     recognize_formulas(
         "a.pdf",
-        batch_size=1,
+        batch_size=128,
     )

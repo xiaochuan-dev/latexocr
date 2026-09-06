@@ -28,4 +28,4 @@ def pdf_to_images(pdfname, dpi=200):
 
 if __name__ == '__main__':
 
-    pdf_to_images('26李林880题-试题册（数一）.pdf')
+    pdf_to_images('a.pdf')

@@ -5,7 +5,7 @@ from .const import imgs_dir
 
 mfd = MathFormulaDetector()
 
-def crop_formulas(img_path: Path):
+def crop_formulas(img_path: Path, save_dir: Path, count):
     image = Image.open(img_path).convert("RGB")
 
     results = mfd(image)
@@ -21,19 +21,23 @@ def crop_formulas(img_path: Path):
 
         formula_img = image.crop((x1, y1, x2, y2))
 
-        output_path = save_dir / f"{img_path.stem}_{i:03d}.png"
+        output_path = save_dir / f"{count:05d}.png"
+        count += 1
         formula_img.save(output_path)
 
-        print(f"保存: {output_path}")
+    return count
 
 
 def crop(pdfname):
+
     pages_dir = Path(imgs_dir) / Path(pdfname).stem / 'pages'
     save_dir = Path(imgs_dir) / Path(pdfname).stem / 'formulas'
     save_dir.mkdir(parents=True, exist_ok=True)
 
+    count = 0
+
     for img_path in sorted(pages_dir.glob("*.png")):
-        crop_formulas(img_path)
+        count = crop_formulas(img_path, save_dir, count)
 
 if __name__ == '__main__':
-    crop('26李林880题-试题册（数一）.pdf')
+    crop('a.pdf')
