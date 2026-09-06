@@ -1,7 +1,10 @@
 from pix2text import Pix2Text
 from PIL import Image
 from pathlib import Path
+from .src.download_utils import download_zip
 
+
+download_zip()
 img_path = "./imgs/26李林880题-试题册（数一）/pages/page_44.png"
 p2t = Pix2Text.from_config()
 
