@@ -28,4 +28,4 @@ def pdf_to_images(pdfname, dpi=200):
 
 if __name__ == '__main__':
 
-    pdf_to_images('a.pdf')
+    pdf_to_images('d.pdf')

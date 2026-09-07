@@ -40,4 +40,4 @@ def crop(pdfname):
         count = crop_formulas(img_path, save_dir, count)
 
 if __name__ == '__main__':
-    crop('a.pdf')
+    crop('d.pdf')

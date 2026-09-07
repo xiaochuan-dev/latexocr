@@ -10,3 +10,5 @@ label.txt
 pdf
 imgs
 *.zip
+latex_ocr_dataset
+*.parquet

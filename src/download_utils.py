@@ -2,6 +2,20 @@ import zipfile
 import os
 from huggingface_hub import hf_hub_download
 
+def download(filename):
+    if not os.path.exists(f'./{filename}'):
+        hf_hub_download(
+            repo_id="xiaochuan-dev/latex",
+            filename=filename,
+            repo_type="dataset",
+            local_dir="./"
+        )
+
+def download_imgs():
+    download('formulas_dataset.parquet')
+
+
+
 def download_zip():
     if not os.path.exists('./imgs.zip'):
         zip_path = hf_hub_download(
